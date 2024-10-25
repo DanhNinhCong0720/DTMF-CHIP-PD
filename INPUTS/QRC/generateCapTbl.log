@@ -1,0 +1,48 @@
+--- Starting "First Encounter: generateCapTbl  " on Mon Mar  2 19:16:01 2009 (mem=62.0M) ---
+--- Running on maecs05 (x86_64 w/Linux 2.6.9-42.ELsmp) ---
+Copyright 1996-2003 Cadence Design Systems, Inc..  Disassembly is strictly prohibited.
+This version was compiled on (32bit) 11/04/2008 14:34 (Linux 2.6).
+Info: Running the command:
+	generateCapTbl  -ict t018s6mm.ict -lef all.lef -output t018s6mm.CapTbl 
+Info: Using default coyote.
+#start importing file all.lef ...
+#complete importing file all.lef
+#Number of layers = 12
+#Number of routing layers = 6
+#Number of vias = 5
+#Number of rules = 1
+#Number of cell = 488
+#Start testing solver coyote 
+#Finished testing solver coyote 
+
+**** Start Generating BASIC_CAP_TABLE...
+         0%  done at 19:16:13 on 03/02/2009
+        10%  done at 19:16:43 on 03/02/2009
+        20%  done at 19:17:31 on 03/02/2009
+        30%  done at 19:18:19 on 03/02/2009
+        40%  done at 19:19:28 on 03/02/2009
+        50%  done at 19:20:18 on 03/02/2009
+        60%  done at 19:21:22 on 03/02/2009
+        70%  done at 19:22:14 on 03/02/2009
+        80%  done at 19:23:17 on 03/02/2009
+        90%  done at 19:24:09 on 03/02/2009
+       100%  done at 19:26:45 on 03/02/2009
+
+**** BASIC_CAP_TABLE Completed.
+
+**** Start Generating EXTENDED_CAP_TABLE...
+#	0%   done at 19:26:45 on 03/02/2009
+#	10%  done at 19:46:12 on 03/02/2009
+#	20%  done at 20:07:06 on 03/02/2009
+#	30%  done at 20:27:45 on 03/02/2009
+#	40%  done at 20:49:28 on 03/02/2009
+#	50%  done at 21:09:59 on 03/02/2009
+#	60%  done at 21:49:49 on 03/02/2009
+#	70%  done at 22:24:32 on 03/02/2009
+#	80%  done at 22:46:24 on 03/02/2009
+#	90%  done at 22:58:22 on 03/02/2009
+#	100% done at 23:18:27 on 03/02/2009
+
+**** EXTENDED_CAP_TABLE Completed.
+
+**** generateCapTbl Finished (CPU Time: 0:10:38  MEM: 94.152M)

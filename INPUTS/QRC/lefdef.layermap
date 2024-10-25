@@ -1,0 +1,14 @@
+extraction_setup \
+    -technology_layer_map \
+     Metal1 METAL_1 \
+     Metal2 METAL_2 \
+     Metal3 METAL_3 \
+     Metal4 METAL_4 \
+     Metal5 METAL_5 \
+     Metal6 METAL_6 \
+     Via12  VIA_1 \
+     Via23  VIA_2 \
+     Via34  VIA_3 \
+     Via45  VIA_4 \
+     Via56  VIA_5
+     
