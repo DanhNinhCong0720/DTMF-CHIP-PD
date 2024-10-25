@@ -1,0 +1,4 @@
+create_relative_floorplan -ref_type core_boundary -horizontal_edge_separate {3 20 3} -vertical_edge_separate {0 20 0} -place DTMF_INST/PLLCLK_INST -ref DTMF_CHIP
+create_relative_floorplan -ref_type core_boundary -horizontal_edge_separate {0 3 0} -vertical_edge_separate {2 -37 2} -orient R270 -place DTMF_INST/RAM_256x16_TEST_INST/RAM_256x16_INST -ref DTMF_CHIP
+create_relative_floorplan -ref_type core_boundary -horizontal_edge_separate {2 -37 2} -vertical_edge_separate {3 -37 3} -place DTMF_INST/RAM_128x16_TEST_INST/RAM_128x16_INST -ref DTMF_CHIP
+create_relative_floorplan -ref_type core_boundary -horizontal_edge_separate {1 -45 1} -vertical_edge_separate {0 3 0} -orient R90 -place DTMF_INST/ARB_INST/ROM_512x16_0_INST -ref DTMF_CHIP
