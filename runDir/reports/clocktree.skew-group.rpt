@@ -1,0 +1,689 @@
+Updating ideal nets and annotations...
+Clock tree spec update: Ideal nets, transition and delay annotations were updated to match active timing constraints.
+Updating ideal nets and annotations done. (took cpu=0:00:00.0 real=0:00:00.0)
+Clock tree timing engine global stage delay update for default_delay_corner_max:setup.early...
+Clock tree timing engine global stage delay update for default_delay_corner_max:setup.early done. (took cpu=0:00:00.1 real=0:00:00.1)
+Clock tree timing engine global stage delay update for default_delay_corner_max:setup.late...
+Clock tree timing engine global stage delay update for default_delay_corner_max:setup.late done. (took cpu=0:00:00.0 real=0:00:00.0)
+Clock tree timing engine global stage delay update for default_delay_corner_min:hold.early...
+Clock tree timing engine global stage delay update for default_delay_corner_min:hold.early done. (took cpu=0:00:00.0 real=0:00:00.0)
+Clock tree timing engine global stage delay update for default_delay_corner_min:hold.late...
+Clock tree timing engine global stage delay update for default_delay_corner_min:hold.late done. (took cpu=0:00:00.0 real=0:00:00.0)
+
+Skew Group Structure:
+=====================
+
+------------------------------------------------------------------------------------
+Skew Group                       Sources    Constrained Sinks    Unconstrained Sinks
+------------------------------------------------------------------------------------
+vclk1/default_constraint_mode       1              392                    2
+vclk2/default_constraint_mode       5              152                    0
+------------------------------------------------------------------------------------
+
+Skew Group Summary:
+===================
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Timing Corner                           Skew Group                       ID Target    Min ID    Max ID    Avg ID    Std.Dev. ID    Skew Target Type    Skew Target    Skew     Skew window occupancy
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+default_delay_corner_max:setup.early    vclk1/default_constraint_mode        -        1.063     1.180     1.135        0.036       ignored                  -         0.118              -
+                                        vclk2/default_constraint_mode        -        0.608     0.717     0.695        0.025       ignored                  -         0.109              -
+default_delay_corner_max:setup.late     vclk1/default_constraint_mode    none         1.063     1.182     1.135        0.036       explicit            *0.080         0.118    80.1% {1.105, 1.182}
+                                        vclk2/default_constraint_mode    none         0.609     0.718     0.696        0.025       explicit            *0.080         0.109    91.4% {0.648, 0.718}
+default_delay_corner_min:hold.early     vclk1/default_constraint_mode        -        0.501     0.563     0.534        0.017       ignored                  -         0.062              -
+                                        vclk2/default_constraint_mode        -        0.281     0.340     0.329        0.014       ignored                  -         0.060              -
+default_delay_corner_min:hold.late      vclk1/default_constraint_mode        -        0.501     0.563     0.535        0.017       ignored                  -         0.062              -
+                                        vclk2/default_constraint_mode        -        0.282     0.341     0.330        0.014       ignored                  -         0.059              -
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* - indicates that target was not met.
+
+Skew Group Min/Max path pins:
+=============================
+
+-------------------------------------------------------------------------------------------------------------
+Timing Corner                           Skew Group                       Min ID    PathID    Max ID    PathID
+-------------------------------------------------------------------------------------------------------------
+default_delay_corner_max:setup.early    vclk1/default_constraint_mode    1.063        1      1.180        2
+-    min DTMF_INST/SPI_INST/dout_reg_6/CK
+-    max DTMF_INST/TDSP_CORE_INST/DECODE_INST/decode_reg_15/CK
+                                        vclk2/default_constraint_mode    0.608        9      0.717       10
+-    min DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-    max DTMF_INST/RESULTS_CONV_INST/r1336_reg_1/CKN
+default_delay_corner_max:setup.late     vclk1/default_constraint_mode    1.063        3      1.182        4
+-    min DTMF_INST/SPI_INST/dout_reg_6/CK
+-    max DTMF_INST/TDSP_CORE_INST/DECODE_INST/decode_reg_15/CK
+                                        vclk2/default_constraint_mode    0.609       11      0.718       12
+-    min DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-    max DTMF_INST/RESULTS_CONV_INST/r1336_reg_1/CKN
+default_delay_corner_min:hold.early     vclk1/default_constraint_mode    0.501        5      0.563        6
+-    min DTMF_INST/RESULTS_CONV_INST/high_mag_reg_5/CK
+-    max DTMF_INST/ARB_INST/ROM_512x16_0_INST/CLK
+                                        vclk2/default_constraint_mode    0.281       13      0.340       14
+-    min DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-    max DTMF_INST/RESULTS_CONV_INST/r1336_reg_1/CKN
+default_delay_corner_min:hold.late      vclk1/default_constraint_mode    0.501        7      0.563        8
+-    min DTMF_INST/RESULTS_CONV_INST/high_mag_reg_5/CK
+-    max DTMF_INST/ARB_INST/ROM_512x16_0_INST/CLK
+                                        vclk2/default_constraint_mode    0.282       15      0.341       16
+-    min DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-    max DTMF_INST/RESULTS_CONV_INST/r1336_reg_1/CKN
+-------------------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.early, min clock_path:
+==============================================================================
+
+PathID    : 1
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/SPI_INST/dout_reg_6/CK
+Delay     : 1.063
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1     rise   -       0.000   0.159  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8  rise   0.000   0.000   0.159  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8  rise   0.167   0.167   0.093  0.040  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00195/A
+-     CLKBUFX3  rise   0.001   0.168   0.093  -      (706.570,529.840)   16.120   -       
+DTMF_INST/CTS_csf_buf_00195/Y
+-     CLKBUFX3  rise   0.151   0.320   0.082  0.011  (705.250,529.840)    1.320     2     
+DTMF_INST/CTS_csf_buf_00183/A
+-     CLKBUFX1  rise   0.000   0.320   0.082  -      (719.770,529.840)   14.520   -       
+DTMF_INST/CTS_csf_buf_00183/Y
+-     CLKBUFX1  rise   0.133   0.452   0.094  0.005  (718.450,530.400)    1.880     1     
+DTMF_INST/CTS_csf_buf_00163/A
+-     CLKBUFX3  rise   0.000   0.452   0.094  -      (723.730,529.840)    5.840   -       
+DTMF_INST/CTS_csf_buf_00163/Y
+-     CLKBUFX3  rise   0.223   0.676   0.194  0.039  (722.410,529.840)    1.320     4     
+DTMF_INST/CTS_ccl_a_buf_00101/A
+-     CLKBUFX3  rise   0.002   0.677   0.194  -      (783.130,604.320)  135.200   -       
+DTMF_INST/CTS_ccl_a_buf_00101/Y
+-     CLKBUFX3  rise   0.205   0.882   0.131  0.023  (784.450,604.320)    1.320     2     
+DTMF_INST/CTS_ccl_a_buf_00044_clone/A
+-     CLKBUFX4  rise   0.001   0.883   0.131  -      (853.750,634.560)   99.540   -       
+DTMF_INST/CTS_ccl_a_buf_00044_clone/Y
+-     CLKBUFX4  rise   0.179   1.063   0.108  0.024  (855.730,634.000)    2.540     7     
+DTMF_INST/SPI_INST/dout_reg_6/CK
+-     SEDFFXL   rise   0.000   1.063   0.108  -      (855.730,674.880)   40.880   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.early, max clock_path:
+==============================================================================
+
+PathID    : 2
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/TDSP_CORE_INST/PORT_BUS_MACH_INST/data_out_reg_10/CK
+Delay     : 1.180
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1      rise   -       0.000   0.159  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8   rise   0.000   0.000   0.159  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8   rise   0.167   0.167   0.093  0.040  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00192/A
+-     CLKBUFX1   rise   0.001   0.168   0.093  -      (678.190,543.840)   45.300   -       
+DTMF_INST/CTS_csf_buf_00192/Y
+-     CLKBUFX1   rise   0.173   0.342   0.159  0.011  (679.510,543.280)    1.880     2     
+DTMF_INST/CTS_csf_buf_00176/A
+-     CLKBUFX3   rise   0.000   0.342   0.159  -      (680.170,570.160)   27.540   -       
+DTMF_INST/CTS_csf_buf_00176/Y
+-     CLKBUFX3   rise   0.222   0.564   0.168  0.033  (678.850,570.160)    1.320     1     
+DTMF_INST/CTS_csf_buf_00155/A
+-     CLKBUFX8   rise   0.001   0.565   0.168  -      (673.570,731.440)  166.560   -       
+DTMF_INST/CTS_csf_buf_00155/Y
+-     CLKBUFX8   rise   0.176   0.741   0.108  0.050  (671.590,732.000)    2.540     3     
+DTMF_INST/CTS_cfo_buf_00223/A
+-     CLKBUFX8   rise   0.002   0.744   0.108  -      (699.970,862.480)  158.860   -       
+DTMF_INST/CTS_cfo_buf_00223/Y
+-     CLKBUFX8   rise   0.134   0.877   0.061  0.016  (701.950,863.040)    2.540     1     
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00097/A
+-     CLKBUFX4   rise   0.001   0.878   0.061  -      (715.810,926.880)   77.700   -       
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00097/Y
+-     CLKBUFX4   rise   0.156   1.034   0.098  0.021  (717.790,926.320)    2.540     2     
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00040_clone/A
+-     CLKBUFX8   rise   0.000   1.034   0.098  -      (718.450,953.200)   27.540   -       
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00040_clone/Y
+-     CLKBUFX8   rise   0.145   1.179   0.082  0.032  (716.470,953.760)    2.540     6     
+DTMF_INST/TDSP_CORE_INST/PORT_BUS_MACH_INST/data_out_reg_10/CK
+-     SDFFRHQXL  rise   0.002   1.180   0.082  -      (803.590,987.920)  121.280   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.late, min clock_path:
+=============================================================================
+
+PathID    : 3
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/SPI_INST/dout_reg_6/CK
+Delay     : 1.063
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1     rise   -       0.000   0.159  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8  rise   0.000   0.000   0.159  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8  rise   0.167   0.167   0.093  0.040  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00195/A
+-     CLKBUFX3  rise   0.001   0.169   0.093  -      (706.570,529.840)   16.120   -       
+DTMF_INST/CTS_csf_buf_00195/Y
+-     CLKBUFX3  rise   0.151   0.320   0.082  0.011  (705.250,529.840)    1.320     2     
+DTMF_INST/CTS_csf_buf_00183/A
+-     CLKBUFX1  rise   0.000   0.320   0.082  -      (719.770,529.840)   14.520   -       
+DTMF_INST/CTS_csf_buf_00183/Y
+-     CLKBUFX1  rise   0.133   0.453   0.094  0.005  (718.450,530.400)    1.880     1     
+DTMF_INST/CTS_csf_buf_00163/A
+-     CLKBUFX3  rise   0.000   0.453   0.094  -      (723.730,529.840)    5.840   -       
+DTMF_INST/CTS_csf_buf_00163/Y
+-     CLKBUFX3  rise   0.223   0.676   0.194  0.039  (722.410,529.840)    1.320     4     
+DTMF_INST/CTS_ccl_a_buf_00101/A
+-     CLKBUFX3  rise   0.002   0.678   0.194  -      (783.130,604.320)  135.200   -       
+DTMF_INST/CTS_ccl_a_buf_00101/Y
+-     CLKBUFX3  rise   0.205   0.882   0.131  0.023  (784.450,604.320)    1.320     2     
+DTMF_INST/CTS_ccl_a_buf_00044_clone/A
+-     CLKBUFX4  rise   0.001   0.883   0.131  -      (853.750,634.560)   99.540   -       
+DTMF_INST/CTS_ccl_a_buf_00044_clone/Y
+-     CLKBUFX4  rise   0.179   1.063   0.108  0.024  (855.730,634.000)    2.540     7     
+DTMF_INST/SPI_INST/dout_reg_6/CK
+-     SEDFFXL   rise   0.000   1.063   0.108  -      (855.730,674.880)   40.880   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.late, max clock_path:
+=============================================================================
+
+PathID    : 4
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/TDSP_CORE_INST/PORT_BUS_MACH_INST/data_out_reg_10/CK
+Delay     : 1.182
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1      rise   -       0.000   0.159  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8   rise   0.000   0.000   0.159  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8   rise   0.167   0.167   0.093  0.040  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00192/A
+-     CLKBUFX1   rise   0.001   0.169   0.093  -      (678.190,543.840)   45.300   -       
+DTMF_INST/CTS_csf_buf_00192/Y
+-     CLKBUFX1   rise   0.173   0.342   0.159  0.011  (679.510,543.280)    1.880     2     
+DTMF_INST/CTS_csf_buf_00176/A
+-     CLKBUFX3   rise   0.000   0.342   0.159  -      (680.170,570.160)   27.540   -       
+DTMF_INST/CTS_csf_buf_00176/Y
+-     CLKBUFX3   rise   0.222   0.564   0.168  0.033  (678.850,570.160)    1.320     1     
+DTMF_INST/CTS_csf_buf_00155/A
+-     CLKBUFX8   rise   0.001   0.565   0.168  -      (673.570,731.440)  166.560   -       
+DTMF_INST/CTS_csf_buf_00155/Y
+-     CLKBUFX8   rise   0.176   0.742   0.108  0.050  (671.590,732.000)    2.540     3     
+DTMF_INST/CTS_cfo_buf_00223/A
+-     CLKBUFX8   rise   0.002   0.744   0.108  -      (699.970,862.480)  158.860   -       
+DTMF_INST/CTS_cfo_buf_00223/Y
+-     CLKBUFX8   rise   0.134   0.878   0.061  0.016  (701.950,863.040)    2.540     1     
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00097/A
+-     CLKBUFX4   rise   0.001   0.879   0.061  -      (715.810,926.880)   77.700   -       
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00097/Y
+-     CLKBUFX4   rise   0.156   1.035   0.098  0.021  (717.790,926.320)    2.540     2     
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00040_clone/A
+-     CLKBUFX8   rise   0.001   1.035   0.098  -      (718.450,953.200)   27.540   -       
+DTMF_INST/TDSP_CORE_INST/CTS_ccl_a_buf_00040_clone/Y
+-     CLKBUFX8   rise   0.145   1.180   0.082  0.032  (716.470,953.760)    2.540     6     
+DTMF_INST/TDSP_CORE_INST/PORT_BUS_MACH_INST/data_out_reg_10/CK
+-     SDFFRHQXL  rise   0.002   1.182   0.082  -      (803.590,987.920)  121.280   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.early, min clock_path:
+=============================================================================
+
+PathID    : 5
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/RESULTS_CONV_INST/high_mag_reg_5/CK
+Delay     : 0.501
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1      rise   -       0.000   0.081  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8   rise   0.000   0.000   0.081  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8   rise   0.078   0.078   0.049  0.041  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00193/A
+-     CLKBUFX1   rise   0.001   0.079   0.049  -      (707.230,503.520)   24.060   -       
+DTMF_INST/CTS_csf_buf_00193/Y
+-     CLKBUFX1   rise   0.085   0.164   0.086  0.012  (708.550,502.960)    1.880     2     
+DTMF_INST/CTS_csf_buf_00180/A
+-     CLKBUFX1   rise   0.000   0.164   0.086  -      (696.670,499.600)   15.240   -       
+DTMF_INST/CTS_csf_buf_00180/Y
+-     CLKBUFX1   rise   0.063   0.227   0.042  0.004  (695.350,500.160)    1.880     1     
+DTMF_INST/CTS_csf_buf_00162/A
+-     CLKBUFX3   rise   0.000   0.227   0.042  -      (692.710,499.600)    3.200   -       
+DTMF_INST/CTS_csf_buf_00162/Y
+-     CLKBUFX3   rise   0.100   0.327   0.090  0.035  (691.390,499.600)    1.320     4     
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00084/A
+-     CLKBUFX1   rise   0.001   0.328   0.090  -      (716.470,489.520)   35.160   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00084/Y
+-     CLKBUFX1   rise   0.072   0.400   0.056  0.006  (715.150,490.080)    1.880     1     
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00027/A
+-     CLKBUFX4   rise   0.000   0.400   0.056  -      (724.390,489.520)    9.800   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00027/Y
+-     CLKBUFX4   rise   0.100   0.500   0.083  0.043  (722.410,490.080)    2.540     9     
+DTMF_INST/RESULTS_CONV_INST/high_mag_reg_5/CK
+-     SDFFRHQXL  rise   0.001   0.501   0.083  -      (725.050,483.920)    8.800   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.early, max clock_path:
+=============================================================================
+
+PathID    : 6
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/ARB_INST/ROM_512x16_0_INST/CLK
+Delay     : 0.563
+
+---------------------------------------------------------------------------------------------------
+Name  Lib cell     Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                          (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace --------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1        rise   -       0.000   0.081  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8     rise   0.000   0.000   0.081  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8     rise   0.078   0.078   0.049  0.041  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00192/A
+-     CLKBUFX1     rise   0.001   0.079   0.049  -      (678.190,543.840)   45.300   -       
+DTMF_INST/CTS_csf_buf_00192/Y
+-     CLKBUFX1     rise   0.082   0.162   0.082  0.011  (679.510,543.280)    1.880     2     
+DTMF_INST/CTS_csf_buf_00176/A
+-     CLKBUFX3     rise   0.000   0.162   0.082  -      (680.170,570.160)   27.540   -       
+DTMF_INST/CTS_csf_buf_00176/Y
+-     CLKBUFX3     rise   0.103   0.265   0.086  0.033  (678.850,570.160)    1.320     1     
+DTMF_INST/CTS_csf_buf_00155/A
+-     CLKBUFX8     rise   0.001   0.266   0.086  -      (673.570,731.440)  166.560   -       
+DTMF_INST/CTS_csf_buf_00155/Y
+-     CLKBUFX8     rise   0.081   0.348   0.056  0.050  (671.590,732.000)    2.540     3     
+DTMF_INST/ARB_INST/CTS_ccl_a_buf_00113/A
+-     CLKBUFX4     rise   0.002   0.350   0.057  -      (605.590,832.240)  166.240   -       
+DTMF_INST/ARB_INST/CTS_ccl_a_buf_00113/Y
+-     CLKBUFX4     rise   0.096   0.446   0.080  0.041  (603.610,832.800)    2.540     1     
+DTMF_INST/ARB_INST/CTS_ccl_buf_00056/A
+-     CLKBUFX12    rise   0.002   0.448   0.081  -      (525.730,916.800)  161.880   -       
+DTMF_INST/ARB_INST/CTS_ccl_buf_00056/Y
+-     CLKBUFX12    rise   0.097   0.545   0.115  0.304  (527.710,916.240)    2.540     1     
+DTMF_INST/ARB_INST/ROM_512x16_0_INST/CLK
+-     rom_512x16A  rise   0.018   0.563   0.079  -      (503.415,917.585)   25.640   -       
+---------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.late, min clock_path:
+============================================================================
+
+PathID    : 7
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/RESULTS_CONV_INST/high_mag_reg_5/CK
+Delay     : 0.501
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1      rise   -       0.000   0.081  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8   rise   0.000   0.000   0.081  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8   rise   0.078   0.078   0.049  0.041  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00193/A
+-     CLKBUFX1   rise   0.001   0.079   0.049  -      (707.230,503.520)   24.060   -       
+DTMF_INST/CTS_csf_buf_00193/Y
+-     CLKBUFX1   rise   0.085   0.164   0.086  0.012  (708.550,502.960)    1.880     2     
+DTMF_INST/CTS_csf_buf_00180/A
+-     CLKBUFX1   rise   0.000   0.164   0.086  -      (696.670,499.600)   15.240   -       
+DTMF_INST/CTS_csf_buf_00180/Y
+-     CLKBUFX1   rise   0.063   0.227   0.042  0.004  (695.350,500.160)    1.880     1     
+DTMF_INST/CTS_csf_buf_00162/A
+-     CLKBUFX3   rise   0.000   0.227   0.042  -      (692.710,499.600)    3.200   -       
+DTMF_INST/CTS_csf_buf_00162/Y
+-     CLKBUFX3   rise   0.100   0.328   0.090  0.035  (691.390,499.600)    1.320     4     
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00084/A
+-     CLKBUFX1   rise   0.001   0.329   0.090  -      (716.470,489.520)   35.160   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00084/Y
+-     CLKBUFX1   rise   0.072   0.401   0.056  0.006  (715.150,490.080)    1.880     1     
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00027/A
+-     CLKBUFX4   rise   0.000   0.401   0.056  -      (724.390,489.520)    9.800   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00027/Y
+-     CLKBUFX4   rise   0.100   0.500   0.083  0.043  (722.410,490.080)    2.540     9     
+DTMF_INST/RESULTS_CONV_INST/high_mag_reg_5/CK
+-     SDFFRHQXL  rise   0.001   0.501   0.083  -      (725.050,483.920)    8.800   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.late, max clock_path:
+============================================================================
+
+PathID    : 8
+Path type : skew group vclk1/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_150/Y
+End       : DTMF_INST/ARB_INST/ROM_512x16_0_INST/CLK
+Delay     : 0.563
+
+---------------------------------------------------------------------------------------------------
+Name  Lib cell     Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                          (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace --------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_150/Y
+-     MX2X1        rise   -       0.000   0.081  0.009  (701.950,518.640)  -           1     
+DTMF_INST/CTS_csf_buf_00196/A
+-     CLKBUFX8     rise   0.000   0.000   0.081  -      (697.990,519.760)    5.080   -       
+DTMF_INST/CTS_csf_buf_00196/Y
+-     CLKBUFX8     rise   0.078   0.078   0.049  0.041  (699.970,520.320)    2.540     5     
+DTMF_INST/CTS_csf_buf_00192/A
+-     CLKBUFX1     rise   0.001   0.079   0.049  -      (678.190,543.840)   45.300   -       
+DTMF_INST/CTS_csf_buf_00192/Y
+-     CLKBUFX1     rise   0.082   0.162   0.082  0.011  (679.510,543.280)    1.880     2     
+DTMF_INST/CTS_csf_buf_00176/A
+-     CLKBUFX3     rise   0.000   0.162   0.082  -      (680.170,570.160)   27.540   -       
+DTMF_INST/CTS_csf_buf_00176/Y
+-     CLKBUFX3     rise   0.103   0.265   0.086  0.033  (678.850,570.160)    1.320     1     
+DTMF_INST/CTS_csf_buf_00155/A
+-     CLKBUFX8     rise   0.001   0.267   0.086  -      (673.570,731.440)  166.560   -       
+DTMF_INST/CTS_csf_buf_00155/Y
+-     CLKBUFX8     rise   0.081   0.348   0.056  0.050  (671.590,732.000)    2.540     3     
+DTMF_INST/ARB_INST/CTS_ccl_a_buf_00113/A
+-     CLKBUFX4     rise   0.002   0.350   0.057  -      (605.590,832.240)  166.240   -       
+DTMF_INST/ARB_INST/CTS_ccl_a_buf_00113/Y
+-     CLKBUFX4     rise   0.096   0.446   0.080  0.041  (603.610,832.800)    2.540     1     
+DTMF_INST/ARB_INST/CTS_ccl_buf_00056/A
+-     CLKBUFX12    rise   0.002   0.448   0.081  -      (525.730,916.800)  161.880   -       
+DTMF_INST/ARB_INST/CTS_ccl_buf_00056/Y
+-     CLKBUFX12    rise   0.097   0.545   0.115  0.304  (527.710,916.240)    2.540     1     
+DTMF_INST/ARB_INST/ROM_512x16_0_INST/CLK
+-     rom_512x16A  rise   0.018   0.563   0.079  -      (503.415,917.585)   25.640   -       
+---------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.early, min clock_path:
+==============================================================================
+
+PathID    : 9
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_154/Y
+End       : DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+Delay     : 0.608
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_154/Y
+-     MX2X1      rise   -       0.000   0.167  0.009  (800.290,669.840)  -           1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/A
+-     CLKBUFX1   rise   0.000   0.000   0.167  -      (761.350,670.960)   40.060   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/Y
+-     CLKBUFX1   rise   0.196   0.196   0.171  0.012  (760.030,671.520)    1.880     1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/A
+-     CLKBUFX1   rise   0.000   0.196   0.171  -      (767.290,721.360)   57.100   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/Y
+-     CLKBUFX1   rise   0.202   0.398   0.180  0.013  (765.970,721.920)    1.880     2     
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/A
+-     CLKBUFX1   rise   0.000   0.398   0.180  -      (763.990,695.040)   28.860   -       
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/Y
+-     CLKBUFX1   rise   0.210   0.608   0.191  0.014  (765.310,694.480)    1.880     3     
+DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-     SDFFRHQXL  rise   0.000   0.608   0.191  -      (787.090,680.480)   35.780   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.early, max clock_path:
+==============================================================================
+
+PathID    : 10
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_158/Y
+End       : DTMF_INST/RESULTS_CONV_INST/r1200_reg_0/CKN
+Delay     :  0.717
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_158/Y
+-     MX2X1     rise   -       0.000   0.166  0.009  (929.650,655.840)  -            1    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/A
+-     CLKBUFX8  rise   0.000   0.000   0.166  -      (925.690,650.800)    9.000   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/Y
+-     CLKBUFX8  rise   0.143   0.143   0.055  0.011  (923.710,651.360)    2.540      2    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/A
+-     CLKBUFX4  rise   0.000   0.143   0.055  -      (913.150,660.880)   20.080   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/Y
+-     CLKBUFX4  rise   0.202   0.345   0.171  0.046  (911.170,661.440)    2.540      7    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/A
+-     CLKBUFX4  rise   0.002   0.347   0.171  -      (854.410,614.400)  103.800   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/Y
+-     CLKBUFX4  rise   0.199   0.547   0.125  0.030  (856.390,613.840)    2.540      1    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/A
+-     CLKBUFX8  rise   0.002   0.548   0.125  -      (760.690,553.920)  155.620   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/Y
+-     CLKBUFX8  rise   0.167   0.715   0.107  0.050  (762.670,553.360)    2.540     10    
+DTMF_INST/RESULTS_CONV_INST/r1200_reg_0/CKN
+-     SDFFNX1   rise   0.002   0.717   0.107  -      (711.850,544.400)   59.780   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.late, min clock_path:
+=============================================================================
+
+PathID    : 11
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_154/Y
+End       : DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+Delay     :  0.609
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_154/Y
+-     MX2X1      rise   -       0.000   0.167  0.009  (800.290,669.840)  -           1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/A
+-     CLKBUFX1   rise   0.000   0.000   0.167  -      (761.350,670.960)   40.060   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/Y
+-     CLKBUFX1   rise   0.196   0.196   0.171  0.012  (760.030,671.520)    1.880     1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/A
+-     CLKBUFX1   rise   0.001   0.197   0.171  -      (767.290,721.360)   57.100   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/Y
+-     CLKBUFX1   rise   0.202   0.399   0.180  0.013  (765.970,721.920)    1.880     2     
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/A
+-     CLKBUFX1   rise   0.000   0.399   0.180  -      (763.990,695.040)   28.860   -       
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/Y
+-     CLKBUFX1   rise   0.210   0.609   0.191  0.014  (765.310,694.480)    1.880     3     
+DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-     SDFFRHQXL  rise   0.000   0.609   0.191  -      (787.090,680.480)   35.780   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_max:setup.late, max clock_path:
+=============================================================================
+
+PathID    : 12
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_158/Y
+End       : DTMF_INST/RESULTS_CONV_INST/r1200_reg_0/CKN
+Delay     :  0.718
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_158/Y
+-     MX2X1     rise   -       0.000   0.166  0.009  (929.650,655.840)  -            1    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/A
+-     CLKBUFX8  rise   0.000   0.000   0.166  -      (925.690,650.800)    9.000   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/Y
+-     CLKBUFX8  rise   0.143   0.143   0.055  0.011  (923.710,651.360)    2.540      2    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/A
+-     CLKBUFX4  rise   0.000   0.143   0.055  -      (913.150,660.880)   20.080   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/Y
+-     CLKBUFX4  rise   0.202   0.346   0.171  0.046  (911.170,661.440)    2.540      7    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/A
+-     CLKBUFX4  rise   0.002   0.347   0.171  -      (854.410,614.400)  103.800   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/Y
+-     CLKBUFX4  rise   0.199   0.547   0.125  0.030  (856.390,613.840)    2.540      1    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/A
+-     CLKBUFX8  rise   0.002   0.548   0.125  -      (760.690,553.920)  155.620   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/Y
+-     CLKBUFX8  rise   0.167   0.716   0.107  0.050  (762.670,553.360)    2.540     10    
+DTMF_INST/RESULTS_CONV_INST/r1200_reg_0/CKN
+-     SDFFNX1   rise   0.002   0.718   0.107  -      (711.850,544.400)   59.780   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.early, min clock_path:
+=============================================================================
+
+PathID    : 13
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_154/Y
+End       : DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+Delay     :  0.281
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_154/Y
+-     MX2X1      rise   -       0.000   0.084  0.010  (800.290,669.840)  -           1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/A
+-     CLKBUFX1   rise   0.000   0.000   0.084  -      (761.350,670.960)   40.060   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/Y
+-     CLKBUFX1   rise   0.090   0.090   0.088  0.012  (760.030,671.520)    1.880     1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/A
+-     CLKBUFX1   rise   0.000   0.090   0.088  -      (767.290,721.360)   57.100   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/Y
+-     CLKBUFX1   rise   0.093   0.183   0.093  0.013  (765.970,721.920)    1.880     2     
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/A
+-     CLKBUFX1   rise   0.000   0.183   0.093  -      (763.990,695.040)   28.860   -       
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/Y
+-     CLKBUFX1   rise   0.097   0.280   0.099  0.014  (765.310,694.480)    1.880     3     
+DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-     SDFFRHQXL  rise   0.000   0.281   0.099  -      (787.090,680.480)   35.780   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.early, max clock_path:
+=============================================================================
+
+PathID    : 14
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_158/Y
+End       : DTMF_INST/RESULTS_CONV_INST/r1200_reg_1/CKN
+Delay     :  0.340
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_158/Y
+-     MX2X1     rise   -       0.000   0.084  0.010  (929.650,655.840)  -            1    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/A
+-     CLKBUFX8  rise   0.000   0.000   0.084  -      (925.690,650.800)    9.000   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/Y
+-     CLKBUFX8  rise   0.066   0.066   0.029  0.012  (923.710,651.360)    2.540      2    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/A
+-     CLKBUFX4  rise   0.000   0.066   0.029  -      (913.150,660.880)   20.080   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/Y
+-     CLKBUFX4  rise   0.098   0.164   0.090  0.048  (911.170,661.440)    2.540      7    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/A
+-     CLKBUFX4  rise   0.002   0.166   0.090  -      (854.410,614.400)  103.800   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/Y
+-     CLKBUFX4  rise   0.092   0.258   0.065  0.030  (856.390,613.840)    2.540      1    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/A
+-     CLKBUFX8  rise   0.002   0.259   0.065  -      (760.690,553.920)  155.620   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/Y
+-     CLKBUFX8  rise   0.079   0.338   0.057  0.051  (762.670,553.360)    2.540     10    
+DTMF_INST/RESULTS_CONV_INST/r1200_reg_1/CKN
+-     SDFFNX1   rise   0.002   0.340   0.057  -      (697.330,534.320)   84.380   -       
+------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.late, min clock_path:
+============================================================================
+
+PathID    : 15
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_154/Y
+End       : DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+Delay     :  0.282
+
+-------------------------------------------------------------------------------------------------
+Name  Lib cell   Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                        (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace ------------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_154/Y
+-     MX2X1      rise   -       0.000   0.084  0.010  (800.290,669.840)  -           1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/A
+-     CLKBUFX1   rise   0.000   0.000   0.084  -      (761.350,670.960)   40.060   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00225/Y
+-     CLKBUFX1   rise   0.090   0.090   0.088  0.012  (760.030,671.520)    1.880     1     
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/A
+-     CLKBUFX1   rise   0.001   0.091   0.088  -      (767.290,721.360)   57.100   -       
+DTMF_INST/SPI_INST/CTS_cdb_buf_00226/Y
+-     CLKBUFX1   rise   0.093   0.184   0.093  0.013  (765.970,721.920)    1.880     2     
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/A
+-     CLKBUFX1   rise   0.000   0.184   0.093  -      (763.990,695.040)   28.860   -       
+DTMF_INST/SPI_INST/CTS_ccl_a_buf_00002/Y
+-     CLKBUFX1   rise   0.097   0.281   0.099  0.014  (765.310,694.480)    1.880     3     
+DTMF_INST/SPI_INST/bit_cnt_reg_2/CK
+-     SDFFRHQXL  rise   0.000   0.282   0.099  -      (787.090,680.480)   35.780   -       
+-------------------------------------------------------------------------------------------------
+
+Timing for timing corner default_delay_corner_min:hold.late, max clock_path:
+============================================================================
+
+PathID    : 16
+Path type : skew group vclk2/default_constraint_mode (path 1 of 1)
+Start     : DTMF_INST/TEST_CONTROL_INST/i_158/Y
+End       : DTMF_INST/RESULTS_CONV_INST/r1200_reg_1/CKN
+Delay     :  0.341
+
+------------------------------------------------------------------------------------------------
+Name  Lib cell  Event  Incr   Arrival  Slew   Cap    Location           Distance  Fanout  Status
+                       (ns)   (ns)     (ns)   (pF)                      (um)              
+-- Clockpath trace -----------------------------------------------------------------------------
+DTMF_INST/TEST_CONTROL_INST/i_158/Y
+-     MX2X1     rise   -       0.000   0.084  0.010  (929.650,655.840)  -            1    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/A
+-     CLKBUFX8  rise   0.000   0.000   0.084  -      (925.690,650.800)    9.000   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00203/Y
+-     CLKBUFX8  rise   0.066   0.066   0.029  0.012  (923.710,651.360)    2.540      2    
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/A
+-     CLKBUFX4  rise   0.000   0.066   0.029  -      (913.150,660.880)   20.080   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_csf_buf_00202/Y
+-     CLKBUFX4  rise   0.098   0.164   0.090  0.048  (911.170,661.440)    2.540      7    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/A
+-     CLKBUFX4  rise   0.002   0.166   0.090  -      (854.410,614.400)  103.800   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00070/Y
+-     CLKBUFX4  rise   0.092   0.258   0.065  0.030  (856.390,613.840)    2.540      1    
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/A
+-     CLKBUFX8  rise   0.002   0.259   0.065  -      (760.690,553.920)  155.620   -       
+DTMF_INST/RESULTS_CONV_INST/CTS_ccl_a_buf_00013/Y
+-     CLKBUFX8  rise   0.079   0.339   0.057  0.051  (762.670,553.360)    2.540     10    
+DTMF_INST/RESULTS_CONV_INST/r1200_reg_1/CKN
+-     SDFFNX1   rise   0.002   0.341   0.057  -      (697.330,534.320)   84.380   -       
+------------------------------------------------------------------------------------------------
+
+
