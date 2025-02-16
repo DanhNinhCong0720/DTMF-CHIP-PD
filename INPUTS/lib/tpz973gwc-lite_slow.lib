@@ -1,0 +1,1021 @@
+/*******************************************************************
+*                   LIBRARY :   tpz973gwc
+*                   Author  :   cschenc
+*                   Method  :   Stuff cells delay Using
+*                               CHEETAH(TSMC ASIC CELL CHARACTERIZATION)
+*                   Comment :   This library was created by
+*                               TSMC SYNOPSYS TEMPLATE library
+*                               and stuffed timing using CHEETAH.
+*                               Engineer should take care of  library dependent
+*                               technology such as template,
+*                               voltage, process k factor and
+*                               wire-load etc
+*                      Unit :
+*                               time : ns 
+*                               capacitance : pf 
+*                   Update  :
+*                               version 230
+*                                Fri  Sep  20  19:34:40  2002 
+*                               (1) Stuff CHEETAH timing 
+********************************************************************/
+library (tpz973g) { 
+    /*  library head: tpz973g */
+    technology (cmos) ;
+    delay_model : table_lookup ;
+    date                : "Fri Sep 20 19:35:38 CST 2002 " ;
+    comment : "Copyright TSMC" ;
+    revision    : 230 ;
+    simulation 	: true ;
+    nom_process : 1 ;
+    nom_temperature : 125;
+    nom_voltage : 3.0;
+    operating_conditions("WCCOM"){
+        process : 1;
+        temperature : 125;
+        voltage : 3.0;
+        tree_type : "worst_case_tree";
+    }
+    default_operating_conditions : WCCOM ;
+    capacitive_load_unit (1,pf) ;
+    voltage_unit : "1V" ;
+    current_unit : "1mA" ;
+    time_unit : "1ns" ;
+    pulling_resistance_unit : "1kohm"; 
+    define_cell_area (pad_drivers,pad_driver_sites) ;
+    define_cell_area(bond_pads,pad_slots) 
+    input_voltage(cmos) {
+        vil : 0.3 * VDD ;
+        vih : 0.7 * VDD ;
+        vimin : -0.5 ;
+        vimax : VDD + 0.5 ;
+    }
+    input_voltage(cmos_schmitt) {
+         vil : 0.3 * VDD ;
+         vih : 0.7 * VDD ;
+         vimin : -0.5 ;
+         vimax : VDD + 0.5 ;
+    }
+    input_voltage(schmitt) {
+         vil : 0.3 * VDD ;
+         vih : 0.7 * VDD ;
+         vimin : -0.5 ;
+         vimax : VDD + 0.5 ;
+    }
+    input_voltage(ttl) {
+         vil : 0.8 ;
+         vih : 2.0 ;
+         vimin : -0.5 ;
+         vimax : VDD + 0.5 ;
+    }
+    input_voltage(ttl_schmitt) {
+         vil : 0.8 ;
+         vih : 2.0 ;
+         vimin : -0.5 ;
+         vimax : VDD + 0.5 ;
+    }
+    input_voltage(pci) {
+         vil : 0.8 ;
+         vih : 2.0 ;
+         vimin : -0.5 ;
+         vimax : VDD + 0.5 ;
+    }
+    output_voltage(cmos) {
+         vol : 0.3 * VDD ;
+         voh : 0.7 * VDD ;
+         vomin : -0.5 ;
+         vomax : VDD + 0.5 ;
+    }
+    output_voltage(cmos_schmitt) {
+         vol : 0.3 * VDD ;
+         voh : 0.7 * VDD ;
+         vomin : -0.5 ;
+         vomax : VDD + 0.5 ;
+    }
+    output_voltage(schmitt) {
+         vol : 0.3 * VDD ;
+         voh : 0.7 * VDD ;
+         vomin : -0.5 ;
+         vomax : VDD + 0.5 ;
+    }
+    output_voltage(ttl) {
+         vol : 0.8 ;
+         voh : 2.0 ;
+         vomin : -0.5 ;
+         vomax : VDD + 0.5 ;
+    }
+    output_voltage(ttl_schmitt) {
+         vol : 0.8 ;
+         voh : 2.0 ;
+         vomin : -0.5 ;
+         vomax : VDD + 0.5 ;
+    }
+    output_voltage(pci) {
+         vol : 0.8 ;
+         voh : 2.0 ;
+         vomin : -0.5 ;
+         vomax : VDD + 0.5 ;
+    }
+
+
+wire_load("ForQA") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0 ;
+fanout_length(1,0)
+fanout_length(2,0)
+fanout_length(3,0)
+fanout_length(4,0)
+fanout_length(5,0)
+fanout_length(6,0)
+fanout_length(7,0)
+fanout_length(8,0)
+fanout_length(9,0)
+fanout_length(10,0)
+fanout_length(11,0)
+fanout_length(12,0)
+fanout_length(13,0)
+fanout_length(14,0)
+fanout_length(15,0)
+fanout_length(16,0)
+fanout_length(17,0)
+fanout_length(18,0)
+fanout_length(19,0)
+fanout_length(20,0)
+}
+
+/* new wire_load */
+
+wire_load("TSMC8K_Conservative") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0035
+fanout_length(1,0.0025)
+fanout_length(2,0.0060)
+fanout_length(3,0.0096)
+fanout_length(4,0.0131)
+fanout_length(5,0.0166)
+fanout_length(6,0.0202)
+fanout_length(7,0.0237)
+fanout_length(8,0.0272)
+fanout_length(9,0.0308)
+fanout_length(10,0.0343)
+}
+wire_load("TSMC16K_Conservative") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0041
+fanout_length(1,0.0025)
+fanout_length(2,0.0066)
+fanout_length(3,0.0107)
+fanout_length(4,0.0148)
+fanout_length(5,0.0189)
+fanout_length(6,0.0229)
+fanout_length(7,0.0270)
+fanout_length(8,0.0311)
+fanout_length(9,0.0352)
+fanout_length(10,0.0393)
+}
+wire_load("TSMC32K_Conservative") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0052
+fanout_length(1,0.0026)
+fanout_length(2,0.0078)
+fanout_length(3,0.0129)
+fanout_length(4,0.0181)
+fanout_length(5,0.0232)
+fanout_length(6,0.0284)
+fanout_length(7,0.0335)
+fanout_length(8,0.0387)
+fanout_length(9,0.0438)
+fanout_length(10,0.0490)
+}
+wire_load("TSMC64K_Conservative") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0070
+fanout_length(1,0.0028)
+fanout_length(2,0.0099)
+fanout_length(3,0.0169)
+fanout_length(4,0.0239)
+fanout_length(5,0.0310)
+fanout_length(6,0.0380)
+fanout_length(7,0.0450)
+fanout_length(8,0.0521)
+fanout_length(9,0.0591)
+fanout_length(10,0.0661)
+}
+wire_load("TSMC128K_Conservative") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0101
+fanout_length(1,0.0031)
+fanout_length(2,0.0132)
+fanout_length(3,0.0233)
+fanout_length(4,0.0334)
+fanout_length(5,0.0435)
+fanout_length(6,0.0536)
+fanout_length(7,0.0637)
+fanout_length(8,0.0738)
+fanout_length(9,0.0839)
+fanout_length(10,0.0940)
+}
+wire_load("TSMC256K_Conservative") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0171
+fanout_length(1,0.0038)
+fanout_length(2,0.0209)
+fanout_length(3,0.0380)
+fanout_length(4,0.0551)
+fanout_length(5,0.0722)
+fanout_length(6,0.0893)
+fanout_length(7,0.1064)
+fanout_length(8,0.1235)
+fanout_length(9,0.1406)
+fanout_length(10,0.1577)
+}
+wire_load("TSMC512K_Conservative") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0311
+fanout_length(1,0.0052)
+fanout_length(2,0.0363)
+fanout_length(3,0.0673)
+fanout_length(4,0.0984)
+fanout_length(5,0.1295)
+fanout_length(6,0.1606)
+fanout_length(7,0.1917)
+fanout_length(8,0.2228)
+fanout_length(9,0.2539)
+fanout_length(10,0.2850)
+}
+wire_load_selection(WireAreaCon){
+wire_load_from_area(0, 49223, "TSMC8K_Conservative");
+wire_load_from_area(49223, 110753, "TSMC16K_Conservative");
+wire_load_from_area(110753, 231079, "TSMC32K_Conservative");
+wire_load_from_area(231079, 443016, "TSMC64K_Conservative");
+wire_load_from_area(443016, 787586, "TSMC128K_Conservative");
+wire_load_from_area(787586, 1575172, "TSMC256K_Conservative");
+wire_load_from_area(1575172, 3150344, "TSMC512K_Conservative");
+}
+
+wire_load("TSMC8K_Aggresive") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0024
+fanout_length(1,0.0013)
+fanout_length(2,0.0037)
+fanout_length(3,0.0061)
+fanout_length(4,0.0085)
+fanout_length(5,0.0109)
+fanout_length(6,0.0133)
+fanout_length(7,0.0157)
+fanout_length(8,0.0181)
+fanout_length(9,0.0205)
+fanout_length(10,0.0229)
+}
+wire_load("TSMC16K_Aggresive") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0026
+fanout_length(1,0.0013)
+fanout_length(2,0.0040)
+fanout_length(3,0.0066)
+fanout_length(4,0.0092)
+fanout_length(5,0.0119)
+fanout_length(6,0.0145)
+fanout_length(7,0.0171)
+fanout_length(8,0.0198)
+fanout_length(9,0.0224)
+fanout_length(10,0.0250)
+}
+wire_load("TSMC32K_Aggresive") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0031
+fanout_length(1,0.0013)
+fanout_length(2,0.0044)
+fanout_length(3,0.0075)
+fanout_length(4,0.0107)
+fanout_length(5,0.0138)
+fanout_length(6,0.0169)
+fanout_length(7,0.0200)
+fanout_length(8,0.0231)
+fanout_length(9,0.0262)
+fanout_length(10,0.0293)
+}
+wire_load("TSMC64K_Aggresive") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0039
+fanout_length(1,0.0014)
+fanout_length(2,0.0053)
+fanout_length(3,0.0092)
+fanout_length(4,0.0132)
+fanout_length(5,0.0171)
+fanout_length(6,0.0210)
+fanout_length(7,0.0250)
+fanout_length(8,0.0289)
+fanout_length(9,0.0328)
+fanout_length(10,0.0368)
+}
+wire_load("TSMC128K_Aggresive") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0053
+fanout_length(1,0.0014)
+fanout_length(2,0.0067)
+fanout_length(3,0.0120)
+fanout_length(4,0.0172)
+fanout_length(5,0.0225)
+fanout_length(6,0.0278)
+fanout_length(7,0.0331)
+fanout_length(8,0.0384)
+fanout_length(9,0.0436)
+fanout_length(10,0.0489)
+}
+wire_load("TSMC256K_Aggresive") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0084
+fanout_length(1,0.0015)
+fanout_length(2,0.0098)
+fanout_length(3,0.0182)
+fanout_length(4,0.0265)
+fanout_length(5,0.0349)
+fanout_length(6,0.0433)
+fanout_length(7,0.0516)
+fanout_length(8,0.0600)
+fanout_length(9,0.0684)
+fanout_length(10,0.0767)
+}
+wire_load("TSMC512K_Aggresive") {
+resistance : 0.00001 ;
+capacitance : 1 ;
+area : 0
+slope : 0.0145
+fanout_length(1,0.0016)
+fanout_length(2,0.0161)
+fanout_length(3,0.0307)
+fanout_length(4,0.0452)
+fanout_length(5,0.0597)
+fanout_length(6,0.0742)
+fanout_length(7,0.0888)
+fanout_length(8,0.1033)
+fanout_length(9,0.1178)
+fanout_length(10,0.1323)
+}
+wire_load_selection(WireAreaAgr){
+wire_load_from_area(0, 49223, "TSMC8K_Aggresive");
+wire_load_from_area(49223, 110753, "TSMC16K_Aggresive");
+wire_load_from_area(110753, 231079, "TSMC32K_Aggresive");
+wire_load_from_area(231079, 443016, "TSMC64K_Aggresive");
+wire_load_from_area(443016, 787586, "TSMC128K_Aggresive");
+wire_load_from_area(787586, 1575172, "TSMC256K_Aggresive");
+wire_load_from_area(1575172, 3150344, "TSMC512K_Aggresive");
+}
+default_wire_load_selection : "WireAreaCon";
+default_wire_load : "TSMC8K_Conservative";
+default_wire_load_mode : segmented;
+in_place_swap_mode : match_footprint ;
+                                   
+default_max_fanout :          20.0
+default_fanout_load :         0.1
+/* T.Y.WU DEC 4, 1997 */ 
+
+default_inout_pin_cap :       0.0
+default_input_pin_cap :       0.0
+default_output_pin_cap :      0.0
+
+
+slew_lower_threshold_pct_rise :  10.00
+slew_upper_threshold_pct_rise :  90.00
+slew_derate_from_library :  1.00
+input_threshold_pct_fall :  50.00
+output_threshold_pct_fall :  50.00
+input_threshold_pct_rise :  50.00
+output_threshold_pct_rise :  50.00
+slew_lower_threshold_pct_fall :  10.00
+slew_upper_threshold_pct_fall :  90.00
+/*test by Kevin*/
+
+
+/*    Please hand edit k factor model ! */
+/*****************************************/
+
+/* by T.Y.WU; Oct 2, 2000
+k_process_cell_rise :           		1.0 ;
+k_process_cell_fall :           		1.0 ;
+k_process_rise_transition  :           	0.0 ;
+k_process_fall_transition  :           	0.0 ;
+
+
+k_temp_cell_rise :           		0.00082 ;
+k_temp_cell_fall :          	 	0.00082 ;
+k_temp_rise_transition  :           0.0 ;
+k_temp_fall_transition  :           0.0 ;
+
+
+k_volt_cell_rise :           		-1.4166667 ;
+k_volt_cell_fall :           		-1.4166667 ;
+k_volt_rise_transition  :           0.0 ;
+k_volt_fall_transition  :           0.0 ;
+*/
+
+/*****************************************/
+/*****************************************/
+/*    Please hand edit power model ! */
+
+/*
+       Units for internal energy table must be (V**2) * C
+       for this example Internal power = (1v)**2 * 1 pf =  1pJoules
+ 
+       The # displayed by Design power in report_power command
+       is V**2 * C * (1/time_unit) for this example is 1 mW
+    */
+        /*********************************************/
+        /* Added for DesignPower (Power Estimation). */
+        leakage_power_unit : 1nW;
+        default_cell_leakage_power : 0;
+ 
+        k_volt_cell_leakage_power : 0.000000 ;
+        k_temp_cell_leakage_power : 0.000000 ;
+        k_process_cell_leakage_power : 0.000000 ;
+ 
+        k_volt_internal_power : 0.000000 ;
+        k_temp_internal_power : 0.000000 ;
+        k_process_internal_power : 0.000000 ;
+/*****************************************/
+/********************************************************************/
+/*    Support table template from CHEETAH */
+/********************************************************************/
+    lu_table_template( tpz973g_Core5x6d0 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.01200, 0.02400, 0.04800, 0.07200, 0.12000, 0.24000");
+    } 
+    power_lut_template( tpz973g_Core5x6d0 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.01200, 0.02400, 0.04800, 0.07200, 0.12000, 0.24000");
+    } 
+    lu_table_template( tpz973g_Core5x6d1 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.14400, 0.24000, 0.38400, 0.48000");
+    } 
+    power_lut_template( tpz973g_Core5x6d1 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.14400, 0.24000, 0.38400, 0.48000");
+    } 
+    lu_table_template( tpz973g_Core5x6d2 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.09600, 0.19200, 0.28800, 0.48000, 0.96000");
+    } 
+    power_lut_template( tpz973g_Core5x6d2 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.09600, 0.19200, 0.28800, 0.48000, 0.96000");
+    } 
+    lu_table_template( tpz973g_Core5x6d3 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.14400, 0.28800, 0.43200, 0.72000, 1.44000");
+    } 
+    power_lut_template( tpz973g_Core5x6d3 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.14400, 0.28800, 0.43200, 0.72000, 1.44000");
+    } 
+    lu_table_template( tpz973g_Core5x6d4 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.19200, 0.38400, 0.57600, 0.96000, 1.92000");
+    } 
+    power_lut_template( tpz973g_Core5x6d4 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.19200, 0.38400, 0.57600, 0.96000, 1.92000");
+    } 
+    lu_table_template( tpz973g_Core5x6d5 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.24000, 0.48000, 0.72000, 1.20000, 2.40000");
+    } 
+    power_lut_template( tpz973g_Core5x6d5 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.24000, 0.48000, 0.72000, 1.20000, 2.40000");
+    } 
+    lu_table_template( tpz973g_Core5x6d6 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.28800, 0.57600, 0.86400, 1.44000, 2.88000");
+    } 
+    power_lut_template( tpz973g_Core5x6d6 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.28800, 0.57600, 0.86400, 1.44000, 2.88000");
+    } 
+    lu_table_template( tpz973g_Core5x6d8 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.38400, 0.76800, 1.15200, 1.92000, 3.84000");
+    } 
+    power_lut_template( tpz973g_Core5x6d8 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.38400, 0.76800, 1.15200, 1.92000, 3.84000");
+    } 
+    lu_table_template( tpz973g_Core5x6d10 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.48000, 0.96000, 1.44000, 2.40000, 4.80000");
+    } 
+    power_lut_template( tpz973g_Core5x6d10 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.48000, 0.96000, 1.44000, 2.40000, 4.80000");
+    } 
+    lu_table_template( tpz973g_Core5x6d12 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.57600, 1.15200, 1.72800, 2.88000, 5.76000");
+    } 
+    power_lut_template( tpz973g_Core5x6d12 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.57600, 1.15200, 1.72800, 2.88000, 5.76000");
+    } 
+    lu_table_template( tpz973g_Core5x6d24 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.04800, 1.15200, 2.30400, 3.45600, 5.76000, 11.52000");
+    } 
+    power_lut_template( tpz973g_Core5x6d24 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.48000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.04800, 1.15200, 2.30400, 3.45600, 5.76000, 11.52000");
+    } 
+    lu_table_template( tpz973g_5VTIO5x6d0 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.01200, 0.02400, 0.04800, 0.07200, 0.12000, 0.24000");
+    } 
+    power_lut_template( tpz973g_5VTIO5x6d0 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.01200, 0.02400, 0.04800, 0.07200, 0.12000, 0.24000");
+    } 
+    lu_table_template( tpz973g_5VTIO5x6d1 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.09600, 0.14400, 0.19200, 0.24000");
+    } 
+    power_lut_template( tpz973g_5VTIO5x6d1 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.09600, 0.14400, 0.19200, 0.24000");
+    } 
+    lu_table_template( tpz973g_5VTIO5x6d2 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.09600, 0.19200, 0.28800, 0.48000, 0.96000");
+    } 
+    power_lut_template( tpz973g_5VTIO5x6d2 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.09600, 0.19200, 0.28800, 0.48000, 0.96000");
+    } 
+    lu_table_template( tpz973g_IO5x6d0 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 5.00000, 10.00000, 15.00000, 20.00000, 25.00000, 30.00000");
+    } 
+    power_lut_template( tpz973g_IO5x6d0 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 5.00000, 10.00000, 15.00000, 20.00000, 25.00000, 30.00000");
+    } 
+    lu_table_template( tpz973g_IO5x6d1 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 30.00000, 40.00000, 70.00000, 100.00000");
+    } 
+    power_lut_template( tpz973g_IO5x6d1 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 30.00000, 40.00000, 70.00000, 100.00000");
+    } 
+    lu_table_template( tpz973g_IO5x6d2 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 20.00000, 40.00000, 60.00000, 80.00000, 100.00000, 150.00000");
+    } 
+    power_lut_template( tpz973g_IO5x6d2 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 20.00000, 40.00000, 60.00000, 80.00000, 100.00000, 150.00000");
+    } 
+    lu_table_template( tpz973g_IO5x6d3 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 30.00000, 50.00000, 70.00000, 90.00000, 120.00000, 175.00000");
+    } 
+    power_lut_template( tpz973g_IO5x6d3 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 30.00000, 50.00000, 70.00000, 90.00000, 120.00000, 175.00000");
+    } 
+    lu_table_template( tpz973g_USBF6x5 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000, 2.40000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 9.60000, 10.80000, 12.00000, 13.20000, 15.60000");
+    } 
+    power_lut_template( tpz973g_USBF6x5 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000, 2.40000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 9.60000, 10.80000, 12.00000, 13.20000, 15.60000");
+    } 
+    lu_table_template( tpz973g_USBL6x7 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000, 2.40000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 12.00000, 24.00000, 48.00000, 72.00000, 96.00000, 120.00000, 144.00000");
+    } 
+    power_lut_template( tpz973g_USBL6x7 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000, 2.40000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 12.00000, 24.00000, 48.00000, 72.00000, 96.00000, 120.00000, 144.00000");
+    } 
+    lu_table_template( tpz973g_USBFIO12x5 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 1.20000, 2.40000, 3.60000, 4.80000, 6.00000, 7.20000, 8.40000, 10.20000, 12.00000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 40.00000, 50.00000, 100.00000");
+    } 
+    power_lut_template( tpz973g_USBFIO12x5 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 1.20000, 2.40000, 3.60000, 4.80000, 6.00000, 7.20000, 8.40000, 10.20000, 12.00000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 40.00000, 50.00000, 100.00000");
+    } 
+    lu_table_template( tpz973g_USBLIO10x5 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 1.20000, 45.00000, 60.00000, 90.00000, 120.00000, 150.00000, 180.00000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 40.00000, 50.00000, 100.00000");
+    } 
+    power_lut_template( tpz973g_USBLIO10x5 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 1.20000, 45.00000, 60.00000, 90.00000, 120.00000, 150.00000, 180.00000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 40.00000, 50.00000, 100.00000");
+    } 
+    lu_table_template( tpz973g_IO3x1d2 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.03600, 0.12000, 0.24000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 30.00000");
+    } 
+    power_lut_template( tpz973g_IO3x1d2 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.03600, 0.12000, 0.24000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 30.00000");
+    } 
+    lu_table_template( tpz973g_5VTIO3x6d2 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.04800, 0.12000, 0.24000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.09600, 0.19200, 0.28800, 0.48000, 0.96000");
+    } 
+    power_lut_template( tpz973g_5VTIO3x6d2 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.04800, 0.12000, 0.24000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.09600, 0.19200, 0.28800, 0.48000, 0.96000");
+    } 
+    lu_table_template( tpz973g_SONY4x4d1 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.04500, 0.06600, 0.09600, 0.12600");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.24000, 0.28800, 0.38400, 0.48000");
+    } 
+    power_lut_template( tpz973g_SONY4x4d1 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.04500, 0.06600, 0.09600, 0.12600");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.24000, 0.28800, 0.38400, 0.48000");
+    } 
+    lu_table_template( tpz973g_SSTL5x6d2 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 5.00000, 10.00000, 15.00000, 20.00000, 25.00000, 30.00000");
+    } 
+    power_lut_template( tpz973g_SSTL5x6d2 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 5.00000, 10.00000, 15.00000, 20.00000, 25.00000, 30.00000");
+    } 
+    lu_table_template( tpz973g_5VTSSTL5x6d1 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06600, 0.16200, 0.31800, 0.48000, 0.66000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.04800, 0.09600, 0.14400, 0.19200, 0.24000, 0.48000");
+    } 
+    power_lut_template( tpz973g_5VTSSTL5x6d1 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06600, 0.16200, 0.31800, 0.48000, 0.66000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.04800, 0.09600, 0.14400, 0.19200, 0.24000, 0.48000");
+    } 
+    lu_table_template( tpz973g_WHHUANG7x7d0 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.48000, 0.96000, 1.44000, 2.40000, 4.80000, 7.20000, 10.56000");
+    } 
+    power_lut_template( tpz973g_WHHUANG7x7d0 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.48000, 0.96000, 1.44000, 2.40000, 4.80000, 7.20000, 10.56000");
+    } 
+    lu_table_template( tpz973g_WHHUANG7x7d1 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 3.36000, 4.80000, 6.24000, 7.68000, 9.12000, 10.56000, 14.40000");
+    } 
+    power_lut_template( tpz973g_WHHUANG7x7d1 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 3.36000, 4.80000, 6.24000, 7.68000, 9.12000, 10.56000, 14.40000");
+    } 
+    lu_table_template( tpz973g_HSTLTXP5x6 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 6.00000, 9.00000, 12.00000, 15.00000, 22.50000, 30.00000");
+    } 
+    power_lut_template( tpz973g_HSTLTXP5x6 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 6.00000, 9.00000, 12.00000, 15.00000, 22.50000, 30.00000");
+    } 
+    lu_table_template( tpz973g_HSTLTXC5x6 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.07200, 0.09600, 0.12000, 0.24000");
+    } 
+    power_lut_template( tpz973g_HSTLTXC5x6 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.07200, 0.09600, 0.12000, 0.24000");
+    } 
+    lu_table_template( tpz973g_HSTLRXC5x6 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.07200, 0.09600, 0.12000, 0.24000");
+    } 
+    power_lut_template( tpz973g_HSTLRXC5x6 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 0.02400, 0.04800, 0.07200, 0.09600, 0.12000, 0.24000");
+    } 
+    lu_table_template( tpz973g_LVDIO5x6d1 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 40.00000, 70.00000, 120.00000, 200.00000");
+    } 
+    power_lut_template( tpz973g_LVDIO5x6d1 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.06000, 0.12000, 0.24000, 0.36000, 0.60000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 20.00000, 40.00000, 70.00000, 120.00000, 200.00000");
+    } 
+    lu_table_template( tpz973g_PIICIO5x6d2 ) { 
+        variable_1 :  input_net_transition 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 25.00000, 50.00000, 75.00000, 100.00000, 150.00000");
+    } 
+    power_lut_template( tpz973g_PIICIO5x6d2 ) { 
+        variable_1 :  input_transition_time 
+        index_1( " 0.12000, 0.24000, 0.48000, 0.60000, 1.20000");
+        variable_2 :  total_output_net_capacitance
+        index_2( " 10.00000, 25.00000, 50.00000, 75.00000, 100.00000, 150.00000");
+    } 
+/********************************************************************/
+/*    TSMC SYNOPSYS LIBRARY CELL MODEL */
+/********************************************************************/
+cell (PDIDGZ) {
+ area : 9400 ;
+ pad_cell : true;
+ bond_pads : 1 ;
+ pad_drivers : 1 ;
+ pin(PAD) {
+  direction : input;
+  capacitance : 3.48851 ;
+  fanout_load : 3.48851 ;
+  is_pad : true;
+  input_voltage : cmos;
+   }
+ pin(C) {
+  direction : output;
+  function : "PAD";
+ timing() {
+   timing_sense : "positive_unate"
+   related_pin : "PAD"
+   cell_rise( tpz973g_5VTIO5x6d1 ) { 
+    values("0.9346, 0.9421, 0.9512, 0.9631, 0.9720, 0.9798", \
+           "0.9276, 0.9365, 0.9482, 0.9581, 0.9681, 0.9763", \
+           "0.8982, 0.9051, 0.9190, 0.9281, 0.9387, 0.9473", \
+           "0.8791, 0.8883, 0.8994, 0.9097, 0.9194, 0.9245", \
+           "0.8503, 0.8583, 0.8711, 0.8798, 0.8908, 0.8992");
+   }
+   rise_transition( tpz973g_5VTIO5x6d1 ) { 
+    values("0.0744, 0.0802, 0.0948, 0.1169, 0.1301, 0.1423", \
+           "0.0759, 0.0791, 0.1002, 0.1133, 0.1286, 0.1419", \
+           "0.0761, 0.0801, 0.1001, 0.1116, 0.1256, 0.1440", \
+           "0.0758, 0.0786, 0.1009, 0.1141, 0.1296, 0.1379", \
+           "0.0760, 0.0796, 0.1004, 0.1119, 0.1271, 0.1419");
+   }
+   cell_fall( tpz973g_5VTIO5x6d1 ) { 
+    values("0.4630, 0.4706, 0.4856, 0.4945, 0.5037, 0.5132", \
+           "0.4761, 0.4843, 0.4966, 0.5057, 0.5174, 0.5260", \
+           "0.5072, 0.5140, 0.5242, 0.5361, 0.5433, 0.5525", \
+           "0.5376, 0.5442, 0.5546, 0.5664, 0.5736, 0.5827", \
+           "0.5905, 0.5985, 0.6086, 0.6207, 0.6307, 0.6405");
+   }
+   fall_transition( tpz973g_5VTIO5x6d1 ) { 
+    values("0.0739, 0.0780, 0.1009, 0.1139, 0.1215, 0.1352", \
+           "0.0741, 0.0777, 0.0936, 0.1067, 0.1212, 0.1318", \
+           "0.0710, 0.0734, 0.0918, 0.1097, 0.1182, 0.1300", \
+           "0.0708, 0.0734, 0.0918, 0.1098, 0.1183, 0.1300", \
+           "0.0787, 0.0846, 0.0911, 0.1027, 0.1196, 0.1319");
+   }
+    }
+ }
+   internal_power( tpz973g_5VTIO5x6d1 ) { 
+    values("3.4718, 3.4746, 3.4743, 3.5059, 3.5066, 3.5032", \
+           "2.9018, 2.8976, 2.9273, 2.9349, 2.9456, 2.9342", \
+           "2.4178, 2.4156, 2.4443, 2.4409, 2.4616, 2.4602", \
+           "2.1288, 2.1236, 2.1533, 2.1619, 2.1726, 2.1732", \
+           "1.8118, 1.8086, 1.8353, 1.8309, 1.8506, 1.8402");
+    related_inputs : " PAD ";
+    related_outputs : " C ";
+   }
+
+} /* end of cell */
+cell (PDO04CDG) {
+ area : 9400 ;
+ pad_cell : true;
+ pad_drivers : 1 ;
+ bond_pads : 1 ;
+ pin(I) {
+  direction : input;
+  capacitance : 0.05790 ;
+  fanout_load : 0.05790 ;
+   }
+ pin(PAD) {
+  direction : output;
+  is_pad : true;
+  output_voltage : cmos;
+  drive_current : 4;
+  function : "I";
+ timing() {
+   timing_sense : "positive_unate"
+   related_pin : "I"
+   cell_rise( tpz973g_IO5x6d1 ) { 
+    values("3.0050, 4.2970, 5.5890, 6.8800, 10.7500, 14.6200", \
+           "3.0590, 4.3520, 5.6430, 6.9350, 10.8100, 14.6800", \
+           "3.1670, 4.4600, 5.7510, 7.0430, 10.9200, 14.7900", \
+           "3.2220, 4.5140, 5.8060, 7.0970, 10.9700, 14.8400", \
+           "3.4870, 4.7790, 6.0710, 7.3620, 11.2300, 15.1100");
+   }
+   rise_transition( tpz973g_IO5x6d1 ) { 
+    values("3.8960, 6.5920, 9.2920, 12.0090, 20.1460, 28.2840", \
+           "3.8960, 6.5920, 9.2980, 12.0050, 20.1510, 28.2900", \
+           "3.8950, 6.5920, 9.3000, 12.0070, 20.1430, 28.2920", \
+           "3.8960, 6.5920, 9.2950, 12.0020, 20.1490, 28.2870", \
+           "3.8950, 6.5920, 9.3000, 12.0070, 20.1440, 28.2920");
+   }
+   cell_fall( tpz973g_IO5x6d1 ) { 
+    values("3.1160, 4.5190, 5.9130, 7.3060, 11.4900, 15.6600", \
+           "3.1460, 4.5490, 5.9430, 7.3360, 11.5200, 15.6900", \
+           "3.1910, 4.5940, 5.9880, 7.3810, 11.5600, 15.7400", \
+           "3.2030, 4.6060, 6.0000, 7.3930, 11.5700, 15.7500", \
+           "3.2680, 4.6710, 6.0650, 7.4590, 11.6400, 15.8200");
+   }
+   fall_transition( tpz973g_IO5x6d1 ) { 
+    values("4.1050, 6.8560, 9.6240, 12.4040, 20.7610, 29.1410", \
+           "4.1050, 6.8560, 9.6240, 12.4040, 20.7610, 29.1410", \
+           "4.1050, 6.8560, 9.6190, 12.3990, 20.7660, 29.1360", \
+           "4.1050, 6.8560, 9.6170, 12.3970, 20.7630, 29.1440", \
+           "4.1060, 6.8560, 9.6220, 12.4020, 20.7690, 29.1390");
+   }
+ }
+}
+   internal_power( tpz973g_IO5x6d1 ) { 
+    values("55.5992, 87.2184, 118.9277, 150.6369, 245.5645, 340.4922", \
+           "55.6592, 87.3184, 118.9277, 150.6369, 245.6645, 340.5922", \
+           "55.8092, 87.4184, 119.1277, 150.8369, 245.7645, 340.7922", \
+           "55.8892, 87.5184, 119.2277, 150.9369, 245.8645, 340.8922", \
+           "56.2892, 88.0184, 119.6277, 151.2369, 246.2645, 341.1922");
+    related_inputs : " I  ";
+    related_outputs : " PAD ";
+   }
+
+} /* end of cell */
+cell (PVDD1DGZ) {
+ area : 9400 ;
+ pad_cell : true;
+ pad_drivers : 1 ;
+ bond_pads : 1 ;
+ pin(VDD) {
+  direction : inout;
+  drive_current : 12 ;
+  is_pad : true;
+   }
+} /* end of cell */
+cell (PVSS1DGZ) {
+ area : 9400 ;
+ pad_cell : true;
+ pad_drivers : 1 ;
+ bond_pads : 1 ;
+ pin(VSS) {
+  direction : inout;
+  drive_current : 12 ;
+  is_pad : true;
+   }
+} /* end of cell */
+}   /* END */
+/* Directory of Synopsys templates: "/net/nasr2/home/tools/cad/src/char/synopsys/template/IO" */
+/* CODE: 694560732540 */ 
